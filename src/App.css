@@ -1,38 +1,41 @@
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-family: cursive;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+main {
+  position: relative;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
+main:before {
+  position: absolute;
+
+  content: "";
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+  z-index: 2;
+
+  background: linear-gradient(90deg, white 50%, transparent 50%), linear-gradient(90deg, white 50%, transparent 50%), linear-gradient(0deg, white 50%, transparent 50%), linear-gradient(0deg, white 50%, transparent 50%);
+  background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
+  background-size: 16px 4px, 16px 4px, 4px 16px, 4px 16px;
+  background-position: 0% 0%, 100% 100%, 0% 100%, 100% 0px;
+  border-radius: 5px;
+  padding: 10px;
+  animation: dash 15s linear infinite;
+}
+
+@keyframes dash {
   to {
-    transform: rotate(360deg);
+    background-position: 100% 0%, 0% 100%, 0% 0%, 100% 100%;
   }
+}
+
+.trail {
+  position: absolute;
+  height: 6px; width: 6px;
+  border-radius: 3px;
+  background: white;
+  content: "🙏";
 }
